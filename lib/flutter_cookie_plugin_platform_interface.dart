@@ -26,4 +26,13 @@ abstract class FlutterCookiePluginPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+
+  Future<String?> getCookies(String url) async {
+    final String? cookies = await _instance.getCookies(url);
+    return cookies;
+  }
+
+
+
 }

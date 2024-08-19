@@ -10,6 +10,12 @@ class MockFlutterCookiePluginPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future<String?> getCookies(String url) {
+    // TODO: implement getCookies
+    throw UnimplementedError();
+  }
 }
 
 void main() {
@@ -24,6 +30,7 @@ void main() {
     MockFlutterCookiePluginPlatform fakePlatform = MockFlutterCookiePluginPlatform();
     FlutterCookiePluginPlatform.instance = fakePlatform;
 
-    expect(await flutterCookiePlugin.getPlatformVersion(), '42');
+    expect(await flutterCookiePlugin.getCookies(""), '42');
+    
   });
 }

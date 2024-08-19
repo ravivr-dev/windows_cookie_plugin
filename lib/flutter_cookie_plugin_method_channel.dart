@@ -10,8 +10,8 @@ class MethodChannelFlutterCookiePlugin extends FlutterCookiePluginPlatform {
   final methodChannel = const MethodChannel('flutter_cookie_plugin');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<String?> getCookies(String url) async {
+    final String cookies = await methodChannel.invokeMethod('getCookies', url);
+    return cookies;
   }
 }
